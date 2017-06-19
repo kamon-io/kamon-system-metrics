@@ -14,8 +14,8 @@
  */
 
 
-val kamonCore         = "io.kamon"                  %%  "kamon-core"            % "0.6.7"
-val sigarLoader       = "io.kamon"                  %   "sigar-loader"          % "1.6.5-rev002"
+val kamonCore         = "io.kamon"                  %%  "kamon-core"            % "1.0.0-RC1-7aeeedad6f6684f8aae018fbf433557b2a587172"
+val sigarLoader       = "io.kamon"                  %   "sigar-loader"          % "1.6.6"
 val logback           = "ch.qos.logback"            %   "logback-classic"       % "1.0.13"
 val slf4jJul          = "org.slf4j"                 %   "jul-to-slf4j"          % "1.7.7"
 
