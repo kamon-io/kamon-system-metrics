@@ -20,7 +20,7 @@ import java.lang.management.{GarbageCollectorMXBean, ManagementFactory}
 
 import kamon.Kamon
 import kamon.system.jmx.GarbageCollectionMetrics.DifferentialCollector
-import kamon.util.MeasurementUnit
+import kamon.metric.MeasurementUnit
 
 import scala.collection.JavaConverters._
 

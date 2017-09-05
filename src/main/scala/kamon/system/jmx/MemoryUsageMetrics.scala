@@ -19,7 +19,7 @@ package kamon.system.jmx
 import java.lang.management.{BufferPoolMXBean, ManagementFactory, MemoryMXBean, MemoryPoolMXBean, MemoryUsage}
 
 import kamon.Kamon
-import kamon.util.MeasurementUnit
+import kamon.metric.MeasurementUnit
 
 import scala.collection.convert.WrapAsScala
 
