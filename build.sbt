@@ -25,4 +25,7 @@ libraryDependencies ++=
   compileScope(kamonCore, sigarLoader) ++
   testScope(scalatest, akkaDependency("testkit").value, akkaDependency("slf4j").value, logback, slf4jJul)
 
+scalaVersion := "2.12.2"
+crossScalaVersions := Seq("2.11.11", "2.12.2")
+resolvers += Resolver.mavenLocal
 resolvers += Resolver.bintrayRepo("kamon-io", "releases")
