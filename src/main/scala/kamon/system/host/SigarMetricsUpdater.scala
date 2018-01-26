@@ -26,7 +26,7 @@ class SigarMetricsUpdater(logger: Logger) extends Runnable {
     Seq(
       CpuMetrics.register(),
       FileSystemMetrics.register(),
-      LoadAverageMetrics.register(),
+      ProcessCpuMetrics.register(),
       MemoryMetrics.register(),
       NetworkMetrics.register(),
       ProcessCpuMetrics.register(),

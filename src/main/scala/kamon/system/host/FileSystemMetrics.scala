@@ -59,7 +59,7 @@ object FileSystemMetrics extends MetricBuilder("host.file-system") with SigarMet
 
       fileSystemUsageRecorders.foreach {
         case (fs, gauge) =>
-          Try((sigar.getFileSystemUsage(fs).getUsePercent() * 100).round).foreach(fileSystemUsage => {
+          Try((sigar.getFileSystemUsage(fs).getUsePercent * 100).round).foreach(fileSystemUsage => {
             gauge.set(fileSystemUsage)
           })
       }

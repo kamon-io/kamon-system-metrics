@@ -29,7 +29,7 @@ import org.slf4j.Logger
 object LoadAverageMetrics extends MetricBuilder("host.load-average") with SigarMetricBuilder {
   def build(sigar: Sigar, metricName: String, logger: Logger) = new Metric {
     val periods = "1" :: "5" :: "15" :: Nil
-    val loadAverageMetrics = LoadAverageMetrics(metricName)
+    val loadAverageMetrics = ProcessCpuMetrics(metricName)
 
     override def update(): Unit = {
       import SigarSafeRunner._
@@ -38,7 +38,7 @@ object LoadAverageMetrics extends MetricBuilder("host.load-average") with SigarM
 
       periods.zipWithIndex.foreach {
         case(period, index) =>
-          loadAverageMetrics.forPeriod(period).record(loadAverage(index).toLong)
+          loadAverageMetrics.forProcess(period).record(loadAverage(index).toLong)
       }
     }
   }
