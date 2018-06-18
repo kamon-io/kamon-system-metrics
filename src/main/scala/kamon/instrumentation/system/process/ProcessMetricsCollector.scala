@@ -13,7 +13,7 @@ import kamon.Kamon
 import oshi.SystemInfo
 import oshi.util.{FileUtil, ParseUtil}
 
-import scala.collection.JavaConverters.iterableAsScalaIterableConverter
+import scala.jdk.CollectionConverters._
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Try
 

@@ -14,7 +14,7 @@ import kamon.instrumentation.system.jvm.JvmMetricsCollector.{Collector, MemoryPo
 import kamon.module.{Module, ModuleFactory}
 import kamon.tag.TagSet
 
-import scala.collection.JavaConverters.{collectionAsScalaIterableConverter, mapAsScalaMapConverter}
+import scala.jdk.CollectionConverters._
 import scala.collection.concurrent.TrieMap
 import scala.concurrent.ExecutionContext
 import scala.util.matching.Regex
@@ -120,15 +120,15 @@ class JvmMetricsCollector(ec: ExecutionContext) extends Module {
 
       val currentHeapUsage = ManagementFactory.getMemoryMXBean.getHeapMemoryUsage
       val freeHeap = Math.max(0L, currentHeapUsage.getMax -  currentHeapUsage.getUsed)
-      _heapUsage.free.record(freeHeap)
-      _heapUsage.used.record(currentHeapUsage.getUsed)
+      _heapUsage.free.update(freeHeap)
+      _heapUsage.used.update(currentHeapUsage.getUsed)
       _heapUsage.max.update(currentHeapUsage.getMax)
       _heapUsage.committed.update(currentHeapUsage.getCommitted)
 
       val currentNonHeapUsage = ManagementFactory.getMemoryMXBean.getNonHeapMemoryUsage
       val freeNonHeap = Math.max(0L, currentNonHeapUsage.getMax -  currentNonHeapUsage.getUsed)
-      _nonHeapUsage.free.record(freeNonHeap)
-      _nonHeapUsage.used.record(currentNonHeapUsage.getUsed)
+      _nonHeapUsage.free.update(freeNonHeap)
+      _nonHeapUsage.used.update(currentNonHeapUsage.getUsed)
       _nonHeapUsage.max.update(currentNonHeapUsage.getMax)
       _nonHeapUsage.committed.update(currentNonHeapUsage.getCommitted)
 
@@ -137,8 +137,8 @@ class JvmMetricsCollector(ec: ExecutionContext) extends Module {
         val memoryUsage = memoryBean.getUsage
         val freeMemory = Math.max(0L, memoryUsage.getMax -  memoryUsage.getUsed)
 
-        poolInstruments.free.record(freeMemory)
-        poolInstruments.used.record(memoryUsage.getUsed)
+        poolInstruments.free.update(freeMemory)
+        poolInstruments.used.update(memoryUsage.getUsed)
         poolInstruments.max.update(memoryUsage.getMax)
         poolInstruments.committed.update(memoryUsage.getCommitted)
       })

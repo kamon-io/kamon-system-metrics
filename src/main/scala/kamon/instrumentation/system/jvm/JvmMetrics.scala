@@ -22,13 +22,13 @@ object JvmMetrics {
     unit = MeasurementUnit.information.bytes
   )
 
-  val MemoryUsed = Kamon.histogram (
+  val MemoryUsed = Kamon.gauge (
     name = "jvm.memory.used",
     description = "Samples the used space in a memory region",
     unit = MeasurementUnit.information.bytes
   )
 
-  val MemoryFree = Kamon.histogram (
+  val MemoryFree = Kamon.gauge (
     name = "jvm.memory.free",
     description = "Samples the free space in a memory region",
     unit = MeasurementUnit.information.bytes
@@ -46,13 +46,13 @@ object JvmMetrics {
     unit = MeasurementUnit.information.bytes
   )
 
-  val MemoryPoolUsed = Kamon.histogram (
+  val MemoryPoolUsed = Kamon.gauge (
     name = "jvm.memory.pool.used",
     description = "Samples the used space in a memory pool",
     unit = MeasurementUnit.information.bytes
   )
 
-  val MemoryPoolFree = Kamon.histogram (
+  val MemoryPoolFree = Kamon.gauge (
     name = "jvm.memory.pool.free",
     description = "Samples the free space in a memory pool",
     unit = MeasurementUnit.information.bytes
@@ -146,8 +146,8 @@ object JvmMetrics {
   object MemoryUsageInstruments {
 
     case class MemoryRegionInstruments (
-      used: Histogram,
-      free: Histogram,
+      used: Gauge,
+      free: Gauge,
       committed: Gauge,
       max: Gauge
     )
