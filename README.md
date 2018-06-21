@@ -120,6 +120,8 @@ All network metrics represent the aggregate of all interfaces available in the h
 * __process-system-cpu__: a histogram tracking the total percentage of CPU spent by the application process in system space, relative to the overall CPU usage.
 * __process-cpu__: a histogram tracking the total percentage of CPU spent by the application, relative to the overall CPU usage.
 
+### process-ulimit ###
+* __open-files__ : a histogram tracking the total number of open files in use by the application process
 
 ### context-switches ###
 
