@@ -59,8 +59,8 @@ kamon {
    # sigar is enabled by default
    host.enabled = true
 
-   # jmx related metrics are enabled by default
-   jmx.enabled = true
+   # jvm related metrics are enabled by default
+   jvm.enabled = true
   }
 }
 ```
