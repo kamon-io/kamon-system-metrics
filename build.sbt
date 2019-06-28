@@ -14,15 +14,18 @@
  * =========================================================================================
  */
 
-val kamonCore = "io.kamon"          %% "kamon-core"       % "2.0.0-RC1"
-val logback   = "ch.qos.logback"    %  "logback-classic"  % "1.0.13"
-val oshi      = "com.github.oshi"   %  "oshi-core"        % "3.13.2"
+val kamonCore     = "io.kamon"          %% "kamon-core"       % "2.0.0-RC1"
+val logback       = "ch.qos.logback"    %  "logback-classic"  % "1.0.13"
+val oshi          = "com.github.oshi"   %  "oshi-core"        % "3.13.2"
+val scalatest2_13 = "org.scalatest"        %% "scalatest"     % "3.0.8"
 
 name := "kamon-system-metrics"
 
 libraryDependencies ++=
   compileScope(kamonCore, oshi) ++
-  testScope(scalatest, logback)
+  testScope(scalatest2_13, logback)
 
 resolvers += Resolver.bintrayRepo("kamon-io", "releases")
 resolvers += Resolver.bintrayRepo("kamon-io", "snapshots")
+
+crossScalaVersions := Seq("2.11.12", "2.12.8", "2.13.0")
